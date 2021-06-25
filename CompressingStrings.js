@@ -14,25 +14,43 @@ const compressingStrings = (str) => {
   const strArray = str.split("");
   while (index < strArray.length) {
     const e = strArray[index];
-    //console.log(e);
     let count = 0;
     for (let j = index; j <= strArray.length; j++) {
       if (e === strArray[j]) {
         count += 1;
       } else {
-        console.log(j);
         index = j;
         break;
       }
     }
-
     if (count > 1) {
       countArray.push(`${count}${e}`);
     } else {
       countArray.push(e);
     }
   }
-  console.log(countArray);
+  return countArray;
 };
 
-compressingStrings("aaabccdddda");
+//console.log(compressingStrings("aaabccddddaaantttyuuu"));
+
+compressStringsUsingRecursion = (str) => {
+  console.log(str);
+  let holdingArray = Array(str.split("").length);
+  if (str == "") {
+    return;
+  } else {
+    console.log(holdingArray.length);
+  }
+
+  if (str.substring(0, 1) === str.substring(1, 2)) {
+    return (
+      compressStringsUsingRecursion(str.substring(1, 2)) +
+      compressStringsUsingRecursion(str.substring(2, str.length))
+    );
+  } else {
+    return compressStringsUsingRecursion(str.substring(2, str.length));
+  }
+};
+
+compressStringsUsingRecursion("aaabccddddaaa");
