@@ -17,7 +17,7 @@ const stringToUrlRecursion = (s) => {
   }
   // need to get index of space
   const indexOfSpace = s.indexOf(" ");
-  // need to make sure index is within range of the string. It will give -1 if it's not
+  // need to make sure index is within range of the string. It will give -1 if it's at end of string
   if (indexOfSpace >= 0) {
     return stringToUrlRecursion(
       s

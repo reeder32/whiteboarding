@@ -29,10 +29,10 @@ const compressingStrings = (str) => {
       countArray.push(e);
     }
   }
-  return countArray;
+  return countArray.Join("");
 };
 
-//console.log(compressingStrings("aaabccddddaaantttyuuu"));
+console.log(compressingStrings("aaabccddddaaantttyuuu"));
 
 compressStringsUsingRecursion = (str) => {
   console.log(str);
@@ -44,11 +44,12 @@ compressStringsUsingRecursion = (str) => {
   }
 
   if (str.substring(0, 1) === str.substring(1, 2)) {
-    return (
-      compressStringsUsingRecursion(str.substring(1, 2)) +
-      compressStringsUsingRecursion(str.substring(2, str.length))
+    //console.log("if");
+    return compressStringsUsingRecursion(
+      str.substring(1, 2).concat(str.substring(2, str.length))
     );
   } else {
+    //console.log("else");
     return compressStringsUsingRecursion(str.substring(2, str.length));
   }
 };

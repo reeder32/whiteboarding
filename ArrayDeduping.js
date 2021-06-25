@@ -24,8 +24,8 @@ const deDupArrayWithRecursion = (arr) => {
 console.log(deDupArrayWithRecursion([7, 9, "hi", 12, "hi", 7, 53]));
 
 const deDupArray = (arr) => {
-  // filter by checking if word does notexist in any index of the array
-  return arr.filter((w, i) => arr.indexOf(w) == i);
+  // filter by checking if word does not exist in any index of the array
+  return arr.filter((e, i) => arr.indexOf(e) == i);
 };
 
 console.log(deDupArray([7, 9, "hi", 12, "hi", 7, 53]));
