@@ -3,10 +3,28 @@
 // The algorithm should return a boolean.
 
 const isUnique = (str) => {
+  let newString = "";
   for (let i = 0; i < str.length; i++) {
-    if (str.indexOf(str[i]) !== str.lastIndexOf(str[i])) return false;
+    if (!newString.includes(str[i])) {
+      newString = newString.concat(str[i]);
+    }
   }
-  return true;
+  return newString.length === str.length;
 };
 
-console.log(isUnique("copyright"));
+console.log(isUnique("qwert yuiop"));
+
+const isUniqueRecursive = (str, index) => {
+  console.log(str, index);
+  if (index >= str.length) {
+    return;
+  }
+
+  if (str.includes(str[index])) {
+    return false;
+  } else {
+    return isUniqueRecursive(str, (index += 1));
+  }
+};
+
+console.log(isUniqueRecursive("qwert yuiopt", 0));

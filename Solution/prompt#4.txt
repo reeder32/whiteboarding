@@ -1,0 +1,33 @@
+Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string 
+into an array or use array methods to solve this problem. The algorithm should return a boolean.
+
+const isUniqe = (str) => {
+  // init new string for comparison
+  let newString = "";
+  // loop through the string using length property
+  for (let i = 0; i < str.length; i++) {
+    if (!newString.includes(str[i])) {
+      newString = newString.concat(str[i]);
+    }
+  }
+  // return will be true if they are the same length
+  return newString.length === str.length;
+}
+
+const isUnique = (str, index = 0) => {
+  if (index >= str.length) {
+    return true;
+  }
+ 
+  // need to compare the char @ string to the following characters in the stringToUrl
+  // it's almost as if it's better to compare substrings in this case to themselves
+  // unsure if I'd need to track the index for the substring
+  // conditional needs to be more fleshed out...
+  if (str.substring(0) != str.substring(index + 1))
+  {
+    return isUnique(str, index + 1)
+  } else {
+    return true
+}
+
+console.log("qwerty")
