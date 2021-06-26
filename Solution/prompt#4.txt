@@ -28,6 +28,7 @@ const isUnique = (str, index = 0) => {
     return isUnique(str, index + 1)
   } else {
     return true
+  }
 }
 
 console.log("qwerty")

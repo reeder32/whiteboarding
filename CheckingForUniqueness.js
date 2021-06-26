@@ -12,19 +12,19 @@ const isUnique = (str) => {
   return newString.length === str.length;
 };
 
-console.log(isUnique("qwert yuiop"));
+//console.log(isUnique("qwert yuiop"));
 
 const isUniqueRecursive = (str, index) => {
   console.log(str, index);
   if (index >= str.length) {
-    return;
+    return true;
   }
 
-  if (str.includes(str[index])) {
-    return false;
+  if (str.substring(0) != str.substring(index + 1)) {
+    return isUnique(str, index + 1);
   } else {
-    return isUniqueRecursive(str, (index += 1));
+    return true;
   }
 };
 
-console.log(isUniqueRecursive("qwert yuiopt", 0));
+console.log(isUniqueRecursive("yuiop", 0));
